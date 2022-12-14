@@ -1,0 +1,20 @@
+{application, twitter,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {twitter_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    crypto,
+    cowboy,
+    compiler,
+    lager,
+    jsone
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache-2.0"]},
+  {links, []}
+ ]}.
