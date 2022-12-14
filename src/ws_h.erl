@@ -20,14 +20,17 @@ websocket_handle({text, Msg}, State) ->
 			User = binary_to_list(maps:get(<<"username">>, Data)),
 			TwitterEnginePID ! {login, User, self()},
 			{[], State ++ [User]};
+
 		<<"tweet">> ->
 			[_, Username | _] = State,
 			TwitterEnginePID ! {tweet, Username, binary_to_list(maps:get(<<"tweet">>, Data))},
 			{[], State};
+
 		<<"follow">> ->
 			[_, Username | _] = State,
 			TwitterEnginePID ! {follow, Username, binary_to_list(maps:get(<<"follow">>, Data))},
 			{[], State};
+
 		<<"retweet">> ->
 			[_, Username | _] = State,
 			TwitterEnginePID ! {
@@ -36,8 +39,18 @@ websocket_handle({text, Msg}, State) ->
 				binary_to_list(maps:get(<<"tweetAuthor">>, Data)), 
 				binary_to_list(maps:get(<<"tweet">>, Data))
 			},
+			{[], State};
+
+		<<"search">> ->
+			[_, Username | _] = State,
+			TwitterEnginePID ! {
+				search, 
+				Username, 
+				binary_to_list(maps:get(<<"query">>, Data))
+			},
 			{[], State}
 	end;
+
 websocket_handle(_Data, State) ->
 	{[], State}.
 

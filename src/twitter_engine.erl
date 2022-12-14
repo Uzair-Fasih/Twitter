@@ -2,9 +2,6 @@
 
 -export([start/1]).
 
-ltb(In) ->
-  erlang:list_to_binary(In).
-
 start(State) ->
   {MappingBitch, DBBitch} = State,
   lager:info("Here's the map: ~p | ~p", [MappingBitch, DBBitch]),
@@ -27,6 +24,10 @@ start(State) ->
     {retweet, User, TweetAuthor, Tweet} ->
       lager:info("~s has decided to retweet tweet by author: ~s, which is: ~p", [User, TweetAuthor, Tweet]),
       MutatedState = twitter_core:tweet(State, User, TweetAuthor, Tweet),
-      start(MutatedState)
+      start(MutatedState);
+
+    {search, User, Query} ->
+      twitter_core:query(State, User, Query),
+      start(State)
 
   end.

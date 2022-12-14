@@ -42,3 +42,31 @@ follow(State, User, FollowUser) ->
   MutatedDB = maps:put(FollowUser, UpdatedFollowUserRecord, DB),
 
   {Mapping, MutatedDB}.
+
+
+match_tweets(_Tweets, 0, MatchedTweets, _WhatToSearch) ->
+    MatchedTweets;
+match_tweets(TweetsList, LengthTweetsList, MatchedTweets, SearchItem) ->
+    {Author, Tweet} = lists:nth(LengthTweetsList, TweetsList),
+    IsMatch = string:find(Tweet, SearchItem),
+    if (IsMatch == nomatch) -> 
+        match_tweets(TweetsList, LengthTweetsList - 1, MatchedTweets, SearchItem); 
+    true -> ModifiedMatchedTweets = MatchedTweets ++ [#{author => erlang:list_to_binary(Author), tweet => erlang:list_to_binary(Tweet)}],
+    match_tweets(TweetsList, LengthTweetsList - 1, ModifiedMatchedTweets, SearchItem) end.
+
+query_each(_Keys, 0, _TweetDB, MatchedTweets, _SearchItem) ->
+    MatchedTweets;
+query_each(Keys, KeyLen, TweetDB, MatchedTweets, SearchItem) ->
+    Key = lists:nth(KeyLen, Keys),
+    UserRecord = maps:get(Key, TweetDB),
+    Tweets = maps:get(feed, UserRecord),
+    TwtLen = length(Tweets),
+    MatchedTweets1 = match_tweets(Tweets, TwtLen, MatchedTweets, SearchItem),
+    query_each(Keys, KeyLen - 1, TweetDB, MatchedTweets1, SearchItem).
+
+query(State, User, Query) ->
+    {Mapping, DB} = State,
+    Keys = maps:keys(DB),
+    MatchedTweets = query_each(Keys, length(Keys), DB, [], Query),
+    UserPID = maps:get(User, Mapping),
+    erlang:start_timer(0, UserPID, jsone:encode(#{results => MatchedTweets})).
