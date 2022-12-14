@@ -15,6 +15,7 @@ start(_StartType, _StartArgs) ->
     Dispatch = cowboy_router:compile([
 		{'_', [
 			{"/", cowboy_static, {priv_file, twitter, "index.html"}},
+			{"/style.css", cowboy_static, {priv_file, twitter, "style.css"}},
 			{"/websocket", ws_h, [TwitterEnginePID]},
 			{"/static/[...]", cowboy_static, {priv_dir, twitter, "static"}}
 		]}
