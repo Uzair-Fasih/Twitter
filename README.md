@@ -1,4 +1,4 @@
-# Twitter-Clone
+# Twitter Clone with Webocket Interface
 
 ## Authors
 | Name | UFID |
