@@ -1,10 +1,10 @@
-# Twitter Clone with Webocket Interface
+# Twitter Clone built with Erlang
 
 ## Overview
 
-The goal of the project is to implement a WebSocket interface for the simulation of the Twitter engine.
+This project is a working implementation of Erlang OTP and the cowboy library to replicate the various functionality of Twitter.
 
-The working demo can be seen on [YouTube](https://www.youtube.com/watch?v=TxjQ76emcE8). <br/>
+The working demo can be seen on [YouTube](https://www.youtube.com/watch?v=TxjQ76emcE8). <br/><br/>
 [![YouTube Demonstration](https://img.youtube.com/vi/TxjQ76emcE8/0.jpg)](https://www.youtube.com/watch?v=TxjQ76emcE8)
 
 ## Overview
