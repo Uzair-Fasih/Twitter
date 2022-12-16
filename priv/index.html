@@ -5,38 +5,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./static/style.css" rel="stylesheet" />
-  <script src="./static/script.js"></script>
-  <title>Twitter</title>
+  <title>Twitter Clone by Mohammad Uzair Fasih</title>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script src='https://unpkg.com/babel-standalone@6.26.0/babel.js'></script>
+  <link href="./static/styles/main.css" rel="stylesheet" />
 </head>
 
-<body onload="onLoad()">
-  <div class="left">
-    <div class="left-header">
-      <img id="logo" onclick="goToHome()" src="./static/twitter.svg" />
-    </div>
-  </div>
-
-  <div class="center">
-    <div class="search">
-      <input onkeydown="search(event)" placeholder="Search for tweets" id="search" />
-    </div>
-    <div class="user-input">
-      <img class="avatar" style="opacity: 0;" />
-      <div class="user-input-internal">
-        <textarea onkeydown="tweet_key(event)" id="tweetData"></textarea>
-        <button id="tweet" onclick="tweet()">Tweet</button>
-      </div>
-    </div>
-    <div id="feed"></div>
-  </div>
-
-  <div class="right">
-  </div>
-
-  <div class="banner">
-    <h1>Twitter Clone built using Erlang for DOSP</h1>
-  </div>
+<body>
+  <div id="root"></div>
+  <script src="./static/scripts/index.js" type="text/babel"></script>
 </body>
 
 </html>

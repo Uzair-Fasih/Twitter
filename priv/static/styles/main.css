@@ -1,0 +1,241 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+  --background: black;
+  --foreground: white;
+  --accent: rgb(29, 155, 240);
+  --background-accent: rgb(32, 35, 39);
+  --subtle: #3f3f3f;
+}
+
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/* Components */
+.twitter-button {
+  background-color: var(--accent);
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--foreground);
+  border-radius: 2rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.panel {
+  flex: 1 1 auto;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: .5px solid var(--subtle);
+}
+
+.header>input {
+  width: 80%;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 2.3rem;
+  border: none;
+  margin: .5rem 0;
+  background-color: var(--background-accent);
+  color: var(--foreground);
+}
+
+.header>.tweeter {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header>.tweeter>img {
+  border-radius: 100%;
+  height: 5.5rem;
+}
+
+.header>.tweeter>.tweeter-action {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-left: 2rem;
+  padding: .5rem 0;
+}
+
+.header>.tweeter>.tweeter-action>textarea {
+  width: 100%;
+  height: 9rem;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 2.3rem;
+  border: none;
+  background-color: var(--background-accent);
+  color: var(--foreground);
+  font-family: sans-serif;
+}
+
+
+.tweet-container {
+  padding: 1.2rem 1.75rem;
+  border-bottom: .5px solid var(--subtle);
+}
+
+.retweet {
+  color: #71767b;
+  font-size: 1.3rem;
+  margin: 0 0 .5rem 7rem;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: row;
+  color: var(--foreground);
+}
+
+.tweet>img {
+  border-radius: 100%;
+  height: 5.5rem;
+}
+
+.tweet>.content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  padding: .5rem 1rem;
+}
+
+.tweet>.content>.user-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.tweet>.content>.user-info>span:first-of-type {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.tweet>.content>.user-info>span:last-of-type {
+  font-size: 1.4rem;
+  color: #71767b;
+  margin-left: 1rem;
+}
+
+.tweet>.content>.tweet-message {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tweet>.content>.actions {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.tweet>.content>.actions>.action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tweet>.content>.actions>.action>img {
+  height: 1.65rem;
+}
+
+.tweet>.content>.actions>.action>p {
+  margin-left: .5rem;
+  margin-right: 9rem;
+  font-size: 1.25rem;
+}
+
+/* Login Page */
+.login-page-container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: rgba(91, 112, 131, 0.4);
+}
+
+.login-page-content {
+  background-color: black;
+  border-radius: 3rem;
+  height: 30rem;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page-content>img {
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
+.login-page-content>input {
+  width: 80%;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 2rem;
+  border: none;
+  margin: .5rem 0;
+}
+
+/* Protected Page */
+.protected-page {
+  background-color: var(--background);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.protected-page-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: min(100vw, 60rem);
+  border-left: .5px solid var(--subtle);
+  border-right: .5px solid var(--subtle);
+}
+
+.mini-header {
+  padding: 2rem;
+  float: right;
+}
+
+.mini-header>img {
+  height: 3rem;
+  cursor: pointer;
+}
+
+.home-feed,
+.search-feed {
+  color: var(--foreground);
+}
+
+.home-feed>h2,
+.search-feed>h2 {
+  margin: 2rem;
+  letter-spacing: -1px;
+  font-size: 1.5rem;
+}
