@@ -1,12 +1,5 @@
 # Twitter Clone with Webocket Interface
 
-## Authors
-
-| Name                 | UFID      |
-| -------------------- | --------- |
-| Mohammed Uzair Fasih | 6286 1020 |
-| Sohaib Uddin Syed    | 5740 5488 |
-
 ## Overview
 
 The goal of the project is to implement a WebSocket interface for the simulation of the Twitter engine.
