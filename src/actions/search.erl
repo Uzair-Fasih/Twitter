@@ -39,4 +39,8 @@ query(State, Query, Websocket) ->
     Keys = maps:keys(Datastore),
     MatchedTweets = query_each(Keys, length(Keys), Datastore, [], Query),
     TweetSet = sets:from_list(MatchedTweets), % Remove duplicates from the mathching logic
-    erlang:start_timer(0, Websocket, jsone:encode(#{results => sets:to_list(TweetSet)})).
+    erlang:start_timer(0, Websocket, jsone:encode(#{
+      results => sets:to_list(TweetSet),
+      success => erlang:list_to_binary("true"),
+      kind => erlang:list_to_binary("search")
+    })).

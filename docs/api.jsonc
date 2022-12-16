@@ -1,0 +1,33 @@
+[
+  // Logging in
+  {
+    "action": "login",
+    "username": "Uzair",
+    "password": "helloworld"
+  },
+
+  // Making a tweet
+  {
+    "action": "tweet",
+    "tweet": "Hello Word!"
+  },
+
+  // Retweeting
+  {
+    "action": "retweet",
+    "tweet": "Hello Word!",
+    "author": "Fasih"
+  },
+
+  // Searching for tweets
+  {
+    "action": "search",
+    "query": "World"
+  },
+
+  // Following a user
+  {
+    "action": "follow",
+    "follow": "Fasih"
+  }
+]
