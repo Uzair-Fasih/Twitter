@@ -10,7 +10,6 @@
 -export([start/2, stop/1]).
 
 start(_StartType, _StartArgs) ->
-    lager:info("~w~n", [jsone:decode(<<"[1,2,3]">>)]),
     TwitterEnginePID = spawn_link(twitter_engine, start, [{#{}, #{}}]),
     Dispatch = cowboy_router:compile([
 		{'_', [
