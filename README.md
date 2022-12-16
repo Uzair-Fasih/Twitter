@@ -11,10 +11,14 @@
 
 The goal of the project is to implement a WebSocket interface for the simulation of the Twitter engine.
 
-## What is Working?
+The working demo can be seen on [YouTube](https://www.youtube.com/watch?v=TxjQ76emcE8).
+[![YouTube Demonstration](https://img.youtube.com/vi/TxjQ76emcE8/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
+## Overview
 
 The project implements the following features of the Twitter Engine.
 
+- Account Creation
 - Tweet
 - Retweet
 - Search
